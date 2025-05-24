@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Shipping Instruction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="parent">
+    <div class="" style="text-align: center;">
+    <img src="https://tanganyikaexport.com/wp-content/uploads/2023/12/offiial-logo-1.png" style="width: 20%;" />
+  </div>
+  <div class="container">
+    <h2>SUBMIT SHIPPING INSTRUCTION</h2>
+
+    <table class="info-table">
+      <tr>
+        <th>REFERENCE</th>
+        <th>BILL OF LADING NUMBER</th>
+      </tr>
+      <tr>
+        <td>Hello</td>
+        <td>Hi</td>
+      </tr>
+      <tr>
+        <th>CARRIER REFERENCE</th>
+        <th>DESTINATION PORT</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>LOAD POINT</th>
+        <th>VESSEL</th>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>LOCAL CLIENT</th>
+        <th>PICKUP DATE</th>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+    <h3>FOR OUR RECORDS, PLEASE PROVIDE YOUR NAME AND EMAIL ADDRESS</h3>
+    <div class="">
+      <table class="info-table">
+        <tr>
+          <th>Your Name *</th>
+          <th>Your Email *</th>
+        </tr>
+
+        <tr>
+          <td><input type="text" placeholder="Name of person submitting this instruction" required /></td>
+          <td><input type="email" placeholder="Email of person submitting this instruction" required /></td>
+        </tr>
+        
+    </table>
+
+    <h3>COMPLETE DETAILS FOR STEPS 1 TO 5</h3>
+
+    <div class="flex-row">
+      <div class="section">
+        <h4>1. SHIPPER/CONSIGNOR</h4>
+        <input type="text" placeholder="Consignor Name" id="consignor-name" />
+        <input type="text" placeholder="Consignor Address 1" id="consignor-addr1" />
+        <input type="text" placeholder="Consignor Address 2" id="consignor-addr2" />
+        <input type="text" placeholder="Consignor City" id="consignor-city" />
+        <input type="text" placeholder="Consignor Country" id="consignor-country" />
+        <input type="text" placeholder="Consignor Postcode" id="consignor-postcode" />
+        <input type="email" placeholder="Consignor Email" id="consignor-email" />
+        <input type="tel" placeholder="Consignor Phone" id="consignor-phone" />
+      </div>
+
+      <div class="section">
+        <h4>3. NOTIFY PARTY <input type="checkbox" id="sameAsConsignee" /> <label for="sameAsConsignee">Use same address as Consignee</label></h4>
+        <input type="text" placeholder="Notify Name" id="notify-name" />
+        <input type="text" placeholder="Notify Address 1" id="notify-addr1" />
+        <input type="text" placeholder="Notify Address 2" id="notify-addr2" />
+        <input type="text" placeholder="Notify City" id="notify-city" />
+        <input type="text" placeholder="Notify Country" id="notify-country" />
+        <input type="text" placeholder="Notify Postcode" id="notify-postcode" />
+        <input type="email" placeholder="Notify Email" id="notify-email" />
+        <input type="tel" placeholder="Notify Phone" id="notify-phone" />
+      </div>
+    </div>
+
+    <div class="flex-row">
+        <div class="section">
+          <h4>2. CONSIGNEE</h4>
+          <input type="text" placeholder="Consignee Name" id="consignee-name" />
+          <input type="text" placeholder="Consignee Address 1" id="consignee-addr1" />
+          <input type="text" placeholder="Consignee Address 2" id="consignee-addr2" />
+          <input type="text" placeholder="Consignee City" id="consignee-city" />
+          <input type="text" placeholder="Consignee Country" id="consignee-country" />
+          <input type="text" placeholder="Consignee Postcode" id="consignee-postcode" />
+          <input type="email" placeholder="Consignee Email" id="consignee-email" />
+          <input type="tel" placeholder="Consignee Phone" id="consignee-phone" />
+        </div>
+      
+
+        <div class="section">
+          <h4>4. SHIPMENT VALUE</h4>
+          <input type="number" placeholder="0.0000" step="0.01" id="shipment-value" />
+          
+
+          <h4>5. YOUR REFERENCES & ADDITIONAL INFO</h4>
+          <textarea placeholder="Any notes like tracking request, draft BOL, etc." rows="5" id="shipment-notes"></textarea>
+        </div>
+      </div>
+      
+
+      <div class="parent2">
+        <h3>CONTAINERS</h3>
+      <p>1 CONTAINER ADDED FOR JOB REFERENCE STWLS25104807</p>
+      <div>
+        <button class="btn-add">+</button>
+      </div>
+      <table class="info-table">
+        <thead>
+          <tr>
+            <th>CONTAINER NUMBER</th>
+            <th>SERIAL NUMBER</th>
+            <th>NUMBER OF PACKAGES</th>
+            <th>PACKAGES DESCRIPTION</th>
+            <th>PACKAGE HS CODE</th>
+            <th>WEIGHT</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody id="container-list">
+          <tr>
+            <td>MSNU5692262</td>
+            <td><input type="text" /></td>
+            <td><input type="number" /></td>
+            <td><input type="text" /></td>
+            <td><input type="text" /></td>
+            <td><input type="number" /></td>
+            <td style="display: flex; flex-direction:row; align-items:center">
+              <button class="edit-btn">✏️</button>
+              <button class="delete-btn">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      
+      
+      <p style="color: red; font-weight: bold;">
+        PLEASE COMPLETE SERIAL NUMBER, NUMBER OF PACKAGES, PACKAGES DESCRIPTION AND WEIGHT FOR ALL CONTAINERS.
+      </p>
+      </div>
+
+      <div id="addContainerModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h2>Add Container</h2>
+          <div>
+            <input type="text" id="containerNumber" placeholder="Container Number" />
+            <input type="text" id="serialNumber" placeholder="Serial Number" />
+            <input type="number" id="packagesNumber" placeholder="Packages Number" />
+            <input type="text" id="packagesDesc" placeholder="Packages Description" />
+            <input type="text" id="packagesHS" placeholder="Packages HS Code" />
+            <input type="number" id="weight" placeholder="Weight in KG (Enter '0' for VGM)" />
+          </div>
+      
+          <footer>
+            <button id="submitContainer">Add Container</button>
+          </footer>
+        </div>
+      </div>
+      
+      <div style="text-align:center; margin-top:32px;">
+        <button id="submitFormBtn" style="background:linear-gradient(90deg,#2563eb 0%,#1e40af 100%);color:#fff;padding:16px 38px;border:none;border-radius:8px;font-size:1.2rem;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.08);cursor:pointer;transition:background 0.2s,transform 0.1s;">Submit Shipping Instruction</button>
+      </div>
+  </div>
+  </div>
+
+  <!-- Welcome Modal -->
+<div id="welcomeModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <h3 style="text-align:center; color:#1d4ed8;">Welcome to TANGANYIKA Export Services</h3>
+    <p style="text-align:center; margin-bottom:18px;">Please enter an Item ID to continue:</p>
+    <input type="text" id="itemIdInput" placeholder="Enter Item ID" style="margin-bottom:12px; font-size:1.1em;" />
+    <footer style="display:flex; justify-content:center;">
+      <button id="submitItemId" style="background:#2563eb; color:#fff; padding:10px 24px; border-radius:6px; border:none; font-size:1em;">Submit</button>
+    </footer>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+
+<script>
+    document.getElementById("sameAsConsignee").addEventListener("change", function () {
+        if (this.checked) {
+          document.getElementById("notify-name").value = document.getElementById("consignee-name").value;
+          document.getElementById("notify-addr1").value = document.getElementById("consignee-name").value;
+          document.getElementById("notify-addr2").value = document.getElementById("consignee-name").value;
+          document.getElementById("notify-city").value = document.getElementById("consignee-name").value;
+          document.getElementById("notify-country").value = document.getElementById("consignee-name").value;
+          document.getElementById("notify-postcode").value = document.getElementById("consignee-name").value;
+          document.getElementById("notify-email").value = document.getElementById("consignee-name").value;
+          document.getElementById("notify-phone").value = document.getElementById("consignee-name").valuer;
+        } else {
+          document.querySelectorAll(".section input").forEach(input => input.value = "");
+        }
+      });
+
+     
+      
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("delete-btn")) {
+          e.target.closest("tr").remove();
+        }
+      });
+
+      const modal = document.getElementById("addContainerModal");
+const openBtn = document.querySelector(".btn-add");
+const closeBtn = document.getElementById("closeModal");
+const submitBtn = document.getElementById("submitContainer");
+
+openBtn.onclick = () => modal.style.display = "block";
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; };
+
+submitBtn.onclick = () => {
+  const containerNumber = document.getElementById("containerNumber").value;
+  const serialNumber = document.getElementById("serialNumber").value;
+  const packagesNumber = document.getElementById("packagesNumber").value;
+  const packagesDesc = document.getElementById("packagesDesc").value;
+  const packagesHS = document.getElementById("packagesHS").value;
+  const weight = document.getElementById("weight").value;
+
+  if (!containerNumber || !serialNumber || !packagesNumber || !packagesDesc || !packagesHS || weight === "") {
+    alert("Please complete all fields.");
+    return;
+  }
+
+  const table = document.getElementById("container-list");
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+    <td data-label="CONTAINER NUMBER">${containerNumber}</td>
+    <td data-label="SERIAL NUMBER">${serialNumber}</td>
+    <td data-label="NUMBER OF PACKAGES">${packagesNumber}</td>
+    <td data-label="PACKAGES DESCRIPTION">${packagesDesc}</td>
+    <td data-label="PACKAGE HS CODE">${packagesHS}</td>
+    <td data-label="WEIGHT">${weight}</td>
+    <td data-label="ACTION" style="display: flex; flex-direction:row; align-items:center">
+      <button class="edit-btn">✏️</button>
+      <button class="delete-btn">🗑️</button>
+    </td>
+  `;
+  table.appendChild(newRow);
+
+  modal.style.display = "none";
+  document.querySelectorAll('#addContainerModal input').forEach(input => input.value = '');
+};
+
+document.getElementById('submitFormBtn').onclick = function() {
+  // Collect all form data
+  const getVal = id => document.getElementById(id)?.value || '';
+  const getInputVal = sel => document.querySelector(sel)?.value || '';
+  const getInputs = sel => Array.from(document.querySelectorAll(sel)).map(i => i.value);
+
+  // Info table (top)
+  const infoTable = document.querySelectorAll('.info-table')[0];
+  const infoRows = infoTable.querySelectorAll('tr');
+  const info = {
+    reference: infoRows[1].children[0].textContent,
+    billOfLading: infoRows[1].children[1].textContent,
+    carrierReference: infoRows[3].children[0].textContent,
+    destinationPort: infoRows[3].children[1].textContent,
+    loadPoint: infoRows[5].children[0].textContent,
+    vessel: infoRows[5].children[1].textContent,
+    localClient: infoRows[7].children[0].textContent,
+    pickupDate: infoRows[7].children[1].textContent
+  };
+
+  // Name/email
+  const name = getInputVal('input[type="text"][placeholder*="Name of person"]');
+  const email = getInputVal('input[type="email"][placeholder*="Email of person"]');
+
+  // Shipper/Consignor
+  const consignor = {
+    name: getVal('consignor-name'),
+    addr1: getVal('consignor-addr1'),
+    addr2: getVal('consignor-addr2'),
+    city: getVal('consignor-city'),
+    country: getVal('consignor-country'),
+    postcode: getVal('consignor-postcode'),
+    email: getVal('consignor-email'),
+    phone: getVal('consignor-phone')
+  };
+  // Consignee
+  const consignee = {
+    name: getVal('consignee-name'),
+    addr1: getVal('consignee-addr1'),
+    addr2: getVal('consignee-addr2'),
+    city: getVal('consignee-city'),
+    country: getVal('consignee-country'),
+    postcode: getVal('consignee-postcode'),
+    email: getVal('consignee-email'),
+    phone: getVal('consignee-phone')
+  };
+  // Notify
+  const notify = {
+    name: getVal('notify-name'),
+    addr1: getVal('notify-addr1'),
+    addr2: getVal('notify-addr2'),
+    city: getVal('notify-city'),
+    country: getVal('notify-country'),
+    postcode: getVal('notify-postcode'),
+    email: getVal('notify-email'),
+    phone: getVal('notify-phone')
+  };
+  // Shipment value & notes
+  const shipmentValue = getVal('shipment-value');
+  const shipmentNotes = getVal('shipment-notes');
+
+  // Containers
+  const containers = Array.from(document.querySelectorAll('#container-list tr')).map(row => {
+    const tds = row.querySelectorAll('td');
+    return {
+      containerNumber: tds[0]?.textContent || '',
+      serialNumber: tds[1]?.querySelector('input')?.value || tds[1]?.textContent || '',
+      packagesNumber: tds[2]?.querySelector('input')?.value || tds[2]?.textContent || '',
+      packagesDesc: tds[3]?.querySelector('input')?.value || tds[3]?.textContent || '',
+      packagesHS: tds[4]?.querySelector('input')?.value || tds[4]?.textContent || '',
+      weight: tds[5]?.querySelector('input')?.value || tds[5]?.textContent || ''
+    };
+  });
+
+  // Compose data
+  const data = {
+    info,
+    name,
+    email,
+    consignor,
+    consignee,
+    notify,
+    shipmentValue,
+    shipmentNotes,
+    containers
+  };
+
+  // Send to backend
+  fetch('http://localhost:3000/api/send-email', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  })
+    .then(res => res.json())
+    .then(resp => {
+      alert(resp.success ? 'Shipping instruction sent!' : 'Failed to send: ' + (resp.error || 'Unknown error'));
+    })
+    .catch(err => {
+      alert('Failed to send: ' + err);
+    });
+};
+
+window.addEventListener('DOMContentLoaded', function() {
+  const welcomeModal = document.getElementById('welcomeModal');
+  const submitItemIdBtn = document.getElementById('submitItemId');
+  const itemIdInput = document.getElementById('itemIdInput');
+  let selectedItemId = null;
+
+  // Show modal on mount
+  welcomeModal.style.display = 'block';
+
+  submitItemIdBtn.onclick = function() {
+    const itemId = itemIdInput.value.trim();
+    if (!itemId) {
+      alert('Please enter an Item ID.');
+      return;
+    }
+    selectedItemId = itemId;
+    welcomeModal.style.display = 'none';
+    fetchItemData(itemId);
+  };
+
+  // Optional: allow Enter key to submit
+  itemIdInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') submitItemIdBtn.click();
+  });
+
+  // Fetch API and display result
+  function fetchItemData(itemId) {
+    fetch(`http://localhost:3000/api/item/${itemId}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("data:", data)
+      })
+      .catch(err => {
+        let resultDiv = document.getElementById('itemResult');
+        if (!resultDiv) {
+          resultDiv = document.createElement('div');
+          resultDiv.id = 'itemResult';
+          document.querySelector('.container').prepend(resultDiv);
+        }
+        resultDiv.innerHTML = `<div style='color:red;'>Failed to fetch item data: ${err}</div>`;
+      });
+  }
+});
+
+</script>
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+        margin: 0;
+        padding: 10px;
+        color: #222;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 30px auto;
+        background: #fff;
+        padding: 32px 24px;
+        border-radius: 16px;
+        box-shadow: 0 6px 32px rgba(0,0,0,0.08), 0 1.5px 6px rgba(0,0,0,0.03);
+      }
+      
+      h2, h3, h4 {
+        text-align: center;
+        margin-top: 30px;
+        color: #1d4ed8;
+        letter-spacing: 1px;
+      }
+      h2 {
+        font-size: 2.2rem;
+        margin-bottom: 18px;
+      }
+      h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+      }
+      h4 {
+        font-size: 1.1rem;
+        margin-bottom: 8px;
+      }
+      
+      .info-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-bottom: 30px;
+        background: #f1f5f9;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      }
+      
+      .info-table th, .info-table td {
+        border: none;
+        padding: 14px 10px;
+        text-align: left;
+      }
+      
+      .info-table th{
+        font-size: 13px;
+        background-color: #e0e7ff;
+        color: #1e293b;
+        font-weight: bold;
+      }
+      .info-table tr:nth-child(even) td {
+        background: #f8fafc;
+      }
+      .info-table tr td input{
+        outline: 0;
+        border: 1px solid #cbd5e1;
+        width: 100%;
+        padding: 7px 8px;
+        border-radius: 5px;
+        background: #fff;
+        font-size: 14px;
+        transition: border 0.2s;
+      }
+      .info-table tr td input:focus {
+        border: 1.5px solid #2563eb;
+        background: #f0f6ff;
+      }
+      .info-table tr td{
+        height: 24px;
+      }
+      .flex-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+      
+      .form-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .form-group input {
+        padding: 10px;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      
+      .section {
+        flex: 1;
+        border: 1.5px solid #e0e7ff;
+        padding: 18px 14px;
+        border-radius: 10px;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: #f8fafc;
+        box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+      }
+      
+      .section input {
+        margin-top: 10px;
+        padding: 10px 8px;
+        margin:5px 0;
+        border-radius: 6px;
+        border: 1px solid #cbd5e1;
+        background: #fff;
+        font-size: 15px;
+        transition: border 0.2s;
+      }
+      .section input:focus {
+        border: 1.5px solid #2563eb;
+        background: #f0f6ff;
+      }
+      textarea {
+        padding: 10px;
+        resize: vertical;
+        border-radius: 6px;
+        border: 1px solid #cbd5e1;
+        background: #fff;
+        font-size: 15px;
+        margin-top: 8px;
+        transition: border 0.2s;
+      }
+      textarea:focus {
+        border: 1.5px solid #2563eb;
+        background: #f0f6ff;
+      }
+      .btn-add {
+        background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+        color: white;
+        padding: 12px 22px;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-top: 18px;
+        font-size: 1rem;
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+        transition: background 0.2s, transform 0.1s;
+      }
+      .btn-add:hover {
+        background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
+        transform: translateY(-2px) scale(1.03);
+      }
+      .edit-btn, .delete-btn {
+        padding: 6px 12px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 6px;
+        font-size: 1rem;
+        font-weight: 500;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        transition: background 0.2s, transform 0.1s;
+      }
+      .edit-btn {
+        background-color: #22c55e;
+        color: white;
+      }
+      .edit-btn:hover {
+        background-color: #16a34a;
+        transform: scale(1.07);
+      }
+      .delete-btn {
+        background-color: #ef4444;
+        color: white;
+      }
+      .delete-btn:hover {
+        background-color: #b91c1c;
+        transform: scale(1.07);
+      }
+      .modal {
+        display: none; 
+        position: fixed;
+        z-index: 999;
+        padding-top: 100px;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        overflow: auto;
+        background-color: rgba(30,41,59,0.18);
+        backdrop-filter: blur(2px);
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: auto;
+        padding: 32px 24px;
+        width: 90%;
+        max-width: 420px;
+        border-radius: 16px;
+        position: relative;
+        box-shadow: 0 8px 32px rgba(30,41,59,0.18);
+        animation: modalIn 0.25s cubic-bezier(.4,0,.2,1);
+      }
+      @keyframes modalIn {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .modal-content div {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .modal-content input{
+        margin-top: 10px;
+        padding: 10px 8px;
+        margin:5px 0;
+        border-radius: 6px;
+        border: 1px solid #cbd5e1;
+        background: #f8fafc;
+        font-size: 15px;
+        transition: border 0.2s;
+      }
+      .modal-content input:focus {
+        border: 1.5px solid #2563eb;
+        background: #f0f6ff;
+      }
+      .modal-content footer{
+        margin-top: 18px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+      }
+      .modal-content button {
+        padding: 10px 18px;
+        border-radius: 6px;
+        border: none;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+      }
+      .modal-content #submitContainer {
+        background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+        color: #fff;
+      }
+      .modal-content #submitContainer:hover {
+        background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
+        transform: scale(1.04);
+      }
+      .close{
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        font-size: 24px;
+        color: #1d4ed8;
+        cursor: pointer;
+      }
+      @media (max-width: 900px) {
+        .flex-row {
+          flex-direction: column;
+        }
+        .container {
+          padding: 10px 2vw;
+        }
+      }
+      @media (max-width: 600px) {
+        body {
+          width: 100vw;
+          min-width: 0;
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+          overflow-x: hidden !important;
+          /* Remove or comment out overflow-y if not needed */
+          background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+        }
+        .parent {
+          width: 100vw;
+          max-width: 100vw;
+          margin: 0;
+          border-radius: 0;
+          box-shadow: none;
+          background: transparent;
+        }
+        .container {
+          width: 100vw;
+          max-width: 100vw;
+          border-radius: 0;
+          margin: 0;
+          box-shadow: none;
+          padding: 2vw 1vw;
+        }
+        .parent2 {
+          display: block;
+          width: 100%;
+        }
+        .parent2 .info-table {
+          display: block;
+          width: 100%;
+          overflow-x: auto;
+        }
+        .parent2 .info-table thead, .parent2 .info-table tbody, .parent2 .info-table tr {
+          display: block;
+          width: 100%;
+        }
+        .parent2 .info-table td, .parent2 .info-table th {
+          display: block;
+          width: 100%;
+          box-sizing: border-box;
+          word-break: break-word;
+        }
+      }
+      #itemResult {
+  margin: 18px 0 24px 0;
+  font-size: 1.1em;
+}
+#itemResult pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+</style>
+</html>
