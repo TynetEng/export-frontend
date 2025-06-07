@@ -122,9 +122,6 @@
       <div class="parent2">
         <h3>CONTAINERS</h3>
       <p>1 CONTAINER ADDED FOR JOB REFERENCE STWLS25104807</p>
-      <div>
-        <button class="btn-add">+</button>
-      </div>
       <table class="info-table">
         <thead>
           <tr>
@@ -139,13 +136,13 @@
         </thead>
         <tbody id="container-list">
           <tr>
-            <td>MSNU5692262</td>
-            <td><input type="text" /></td>
-            <td><input type="number" /></td>
-            <td><input type="text" /></td>
-            <td><input type="text" /></td>
-            <td><input type="number" /></td>
-            <td style="display: flex; flex-direction:row; align-items:center">
+            <td data-label="CONTAINER NUMBER">MSNU5692262</td>
+            <td data-label="SERIAL NUMBER"><input type="text" /></td>
+            <td data-label="NUMBER OF PACKAGES"><input type="number" /></td>
+            <td data-label="PACKAGES DESCRIPTION"><input type="text" /></td>
+            <td data-label="PACKAGE HS CODE"><input type="text" /></td>
+            <td data-label="WEIGHT"><input type="number" /></td>
+            <td data-label="ACTION" style="display: flex; flex-direction:row; align-items:center">
               <button class="edit-btn">✏️</button>
               <button class="delete-btn">🗑️</button>
             </td>
@@ -153,7 +150,7 @@
         </tbody>
       </table>
       
-      
+      <button class="btn-add">ADD CONTAINER</button>
       
       <p style="color: red; font-weight: bold;">
         PLEASE COMPLETE SERIAL NUMBER, NUMBER OF PACKAGES, PACKAGES DESCRIPTION AND WEIGHT FOR ALL CONTAINERS.
@@ -174,28 +171,14 @@
           </div>
       
           <footer>
+            <button id="closeModal">Close</button>
             <button id="submitContainer">Add Container</button>
           </footer>
         </div>
       </div>
       
-      <div style="text-align:center; margin-top:32px;">
-        <button id="submitFormBtn" style="background:linear-gradient(90deg,#2563eb 0%,#1e40af 100%);color:#fff;padding:16px 38px;border:none;border-radius:8px;font-size:1.2rem;font-weight:700;box-shadow:0 2px 8px rgba(37,99,235,0.08);cursor:pointer;transition:background 0.2s,transform 0.1s;">Submit Shipping Instruction</button>
-      </div>
   </div>
   </div>
-
-  <!-- Welcome Modal -->
-<div id="welcomeModal" class="modal" style="display: none;">
-  <div class="modal-content">
-    <h3 style="text-align:center; color:#1d4ed8;">Welcome to TANGANYIKA Export Services</h3>
-    <p style="text-align:center; margin-bottom:18px;">Please enter an Item ID to continue:</p>
-    <input type="text" id="itemIdInput" placeholder="Enter Item ID" style="margin-bottom:12px; font-size:1.1em;" />
-    <footer style="display:flex; justify-content:center;">
-      <button id="submitItemId" style="background:#2563eb; color:#fff; padding:10px 24px; border-radius:6px; border:none; font-size:1em;">Submit</button>
-    </footer>
-  </div>
-</div>
 
   <script src="script.js"></script>
 </body>
@@ -241,182 +224,126 @@ submitBtn.onclick = () => {
   const packagesHS = document.getElementById("packagesHS").value;
   const weight = document.getElementById("weight").value;
 
+
   if (!containerNumber || !serialNumber || !packagesNumber || !packagesDesc || !packagesHS || weight === "") {
     alert("Please complete all fields.");
     return;
   }
 
+
   const table = document.getElementById("container-list");
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
-    <td data-label="CONTAINER NUMBER">${containerNumber}</td>
-    <td data-label="SERIAL NUMBER">${serialNumber}</td>
-    <td data-label="NUMBER OF PACKAGES">${packagesNumber}</td>
-    <td data-label="PACKAGES DESCRIPTION">${packagesDesc}</td>
-    <td data-label="PACKAGE HS CODE">${packagesHS}</td>
-    <td data-label="WEIGHT">${weight}</td>
-    <td data-label="ACTION" style="display: flex; flex-direction:row; align-items:center">
+    <td>${containerNumber}</td>
+    <td>${serialNumber}</td>
+    <td>${packagesNumber}</td>
+    <td>${packagesDesc}</td>
+    <td>${packagesHS}</td>
+    <td>${weight}</td>
+    <td style="display: flex; flex-direction:row; align-items:center">
       <button class="edit-btn">✏️</button>
       <button class="delete-btn">🗑️</button>
     </td>
   `;
   table.appendChild(newRow);
 
+
   modal.style.display = "none";
   document.querySelectorAll('#addContainerModal input').forEach(input => input.value = '');
 };
 
-document.getElementById('submitFormBtn').onclick = function() {
-  // Collect all form data
-  const getVal = id => document.getElementById(id)?.value || '';
-  const getInputVal = sel => document.querySelector(sel)?.value || '';
-  const getInputs = sel => Array.from(document.querySelectorAll(sel)).map(i => i.value);
-
-  // Info table (top)
-  const infoTable = document.querySelectorAll('.info-table')[0];
-  const infoRows = infoTable.querySelectorAll('tr');
-  const info = {
-    reference: infoRows[1].children[0].textContent,
-    billOfLading: infoRows[1].children[1].textContent,
-    carrierReference: infoRows[3].children[0].textContent,
-    destinationPort: infoRows[3].children[1].textContent,
-    loadPoint: infoRows[5].children[0].textContent,
-    vessel: infoRows[5].children[1].textContent,
-    localClient: infoRows[7].children[0].textContent,
-    pickupDate: infoRows[7].children[1].textContent
-  };
-
-  // Name/email
-  const name = getInputVal('input[type="text"][placeholder*="Name of person"]');
-  const email = getInputVal('input[type="email"][placeholder*="Email of person"]');
-
-  // Shipper/Consignor
-  const consignor = {
-    name: getVal('consignor-name'),
-    addr1: getVal('consignor-addr1'),
-    addr2: getVal('consignor-addr2'),
-    city: getVal('consignor-city'),
-    country: getVal('consignor-country'),
-    postcode: getVal('consignor-postcode'),
-    email: getVal('consignor-email'),
-    phone: getVal('consignor-phone')
-  };
-  // Consignee
-  const consignee = {
-    name: getVal('consignee-name'),
-    addr1: getVal('consignee-addr1'),
-    addr2: getVal('consignee-addr2'),
-    city: getVal('consignee-city'),
-    country: getVal('consignee-country'),
-    postcode: getVal('consignee-postcode'),
-    email: getVal('consignee-email'),
-    phone: getVal('consignee-phone')
-  };
-  // Notify
-  const notify = {
-    name: getVal('notify-name'),
-    addr1: getVal('notify-addr1'),
-    addr2: getVal('notify-addr2'),
-    city: getVal('notify-city'),
-    country: getVal('notify-country'),
-    postcode: getVal('notify-postcode'),
-    email: getVal('notify-email'),
-    phone: getVal('notify-phone')
-  };
-  // Shipment value & notes
-  const shipmentValue = getVal('shipment-value');
-  const shipmentNotes = getVal('shipment-notes');
-
-  // Containers
-  const containers = Array.from(document.querySelectorAll('#container-list tr')).map(row => {
-    const tds = row.querySelectorAll('td');
-    return {
-      containerNumber: tds[0]?.textContent || '',
-      serialNumber: tds[1]?.querySelector('input')?.value || tds[1]?.textContent || '',
-      packagesNumber: tds[2]?.querySelector('input')?.value || tds[2]?.textContent || '',
-      packagesDesc: tds[3]?.querySelector('input')?.value || tds[3]?.textContent || '',
-      packagesHS: tds[4]?.querySelector('input')?.value || tds[4]?.textContent || '',
-      weight: tds[5]?.querySelector('input')?.value || tds[5]?.textContent || ''
-    };
-  });
-
-  // Compose data
-  const data = {
-    info,
-    name,
-    email,
-    consignor,
-    consignee,
-    notify,
-    shipmentValue,
-    shipmentNotes,
-    containers
-  };
-
-  // Send to backend
-  fetch('http://localhost:3000/api/send-email', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
-    .then(res => res.json())
-    .then(resp => {
-      alert(resp.success ? 'Shipping instruction sent!' : 'Failed to send: ' + (resp.error || 'Unknown error'));
-    })
-    .catch(err => {
-      alert('Failed to send: ' + err);
-    });
-};
-
 window.addEventListener('DOMContentLoaded', function() {
-  const welcomeModal = document.getElementById('welcomeModal');
-  const submitItemIdBtn = document.getElementById('submitItemId');
-  const itemIdInput = document.getElementById('itemIdInput');
-  let selectedItemId = null;
-
-  // Show modal on mount
-  welcomeModal.style.display = 'block';
-
-  submitItemIdBtn.onclick = function() {
-    const itemId = itemIdInput.value.trim();
-    if (!itemId) {
-      alert('Please enter an Item ID.');
-      return;
+  function showLoader() {
+    let loader = document.getElementById('itemLoaderModal');
+    if (!loader) {
+      loader = document.createElement('div');
+      loader.id = 'itemLoaderModal';
+      loader.innerHTML = `
+        <div class="loader-modal-content">
+          <div class="loader-spinner"></div>
+          <div class="loader-text">Loading item data...</div>
+        </div>
+      `;
+      document.body.appendChild(loader);
     }
-    selectedItemId = itemId;
-    welcomeModal.style.display = 'none';
-    fetchItemData(itemId);
-  };
+    loader.style.display = 'flex';
+  }
+  function hideLoader() {
+    let loader = document.getElementById('itemLoaderModal');
+    if (loader) loader.style.display = 'none';
+  }
 
-  // Optional: allow Enter key to submit
-  itemIdInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') submitItemIdBtn.click();
-  });
+  // Get itemId from URL params
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlItemId = urlParams.get('itemId');
+  if (urlItemId) {
+    fetchItemData(urlItemId);
+  }
 
   // Fetch API and display result
   function fetchItemData(itemId) {
+    showLoader();
     fetch(`http://localhost:3000/api/item/${itemId}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
       }
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log("data:", data)
+      .then(res => {
+        if (!res.ok) throw new Error('API returned status ' + res.status);
+        return res.json();
       })
-      .catch(err => {
+      .then(data => {
+        hideLoader();
         let resultDiv = document.getElementById('itemResult');
         if (!resultDiv) {
           resultDiv = document.createElement('div');
           resultDiv.id = 'itemResult';
           document.querySelector('.container').prepend(resultDiv);
         }
-        resultDiv.innerHTML = `<div style='color:red;'>Failed to fetch item data: ${err}</div>`;
+        // Escape HTML for safety
+        function escapeHtml(str) {
+          if (!str && str !== 0) return '';
+          return String(str).replace(/[&<>"]|'/g, function (c) {
+            return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c] || c;
+          });
+        }
+        // Format the data nicely
+        let html = `<div class='item-info-box'>`;
+        html += `<div><b>Item ID:</b> ${escapeHtml(data.id)}</div>`;
+        if (data.reference) html += `<div><b>Reference:</b> ${escapeHtml(data.reference)}</div>`;
+        if (data.bolNumber) html += `<div><b>BOL Number:</b> ${escapeHtml(data.bolNumber)}</div>`;
+        if (data.carrierReference) html += `<div><b>Carrier Reference:</b> ${escapeHtml(data.carrierReference)}</div>`;
+        if (data.destinationPort) html += `<div><b>Destination Port:</b> ${escapeHtml(data.destinationPort)}</div>`;
+        if (data.loadPoint) html += `<div><b>Load Point:</b> ${escapeHtml(data.loadPoint)}</div>`;
+        if (data.vessel) html += `<div><b>Vessel:</b> ${escapeHtml(data.vessel)}</div>`;
+        if (data.localClient) html += `<div><b>Local Client:</b> ${escapeHtml(data.localClient)}</div>`;
+        if (data.pickupDate) html += `<div><b>Pickup Date:</b> ${escapeHtml(data.pickupDate)}</div>`;
+        html += `</div>`;
+        resultDiv.innerHTML = html;
+      })
+      .catch(err => {
+        hideLoader();
+        alert('Failed to fetch item data: ' + err);
       });
   }
-});
 
+  // Helper to escape HTML for safe display
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, function(tag) {
+      const chars = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      };
+      return chars[tag] || tag;
+    });
+  }
+});
+      
+      
 </script>
 <style>
     body {
@@ -670,13 +597,79 @@ window.addEventListener('DOMContentLoaded', function() {
         background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
         transform: scale(1.04);
       }
-      .close{
+      .modal-content #closeModal {
+        background: #e5e7eb;
+        color: #222;
+      }
+      .modal-content #closeModal:hover {
+        background: #cbd5e1;
+        transform: scale(1.04);
+      }
+      .close {
         position: absolute;
-        top: 16px;
-        right: 16px;
-        font-size: 24px;
-        color: #1d4ed8;
+        right: 15px;
+        top: 15px;
         cursor: pointer;
+        font-size: 26px;
+        color: #64748b;
+        transition: color 0.2s;
+      }
+      .close:hover {
+        color: #1d4ed8;
+      }
+      .item-info-box {
+        background: linear-gradient(90deg, #e0e7ff 0%, #f1f5f9 100%);
+        border: 2px solid #2563eb;
+        border-radius: 10px;
+        padding: 18px 16px;
+        margin-bottom: 24px;
+        font-size: 1.08rem;
+        color: #1e293b;
+        box-shadow: 0 2px 8px rgba(37,99,235,0.07);
+      }
+      .item-info-box b {
+        color: #1d4ed8;
+      }
+      #itemLoaderModal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0; top: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(30,41,59,0.18);
+        backdrop-filter: blur(2px);
+        justify-content: center;
+        align-items: center;
+      }
+      .loader-modal-content {
+        background: #fff;
+        padding: 36px 32px 28px 32px;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(30,41,59,0.18);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 180px;
+      }
+      .loader-spinner {
+        border: 4px solid #e0e7ff;
+        border-top: 4px solid #2563eb;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
+        animation: spin 1s linear infinite;
+        margin-bottom: 18px;
+      }
+      .loader-text {
+        color: #1d4ed8;
+        font-size: 1.1rem;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
       }
       @media (max-width: 900px) {
         .flex-row {
@@ -722,9 +715,16 @@ window.addEventListener('DOMContentLoaded', function() {
           width: 100%;
           overflow-x: auto;
         }
-        .parent2 .info-table thead, .parent2 .info-table tbody, .parent2 .info-table tr {
+        .parent2 .info-table thead {
+          display: none;
+        }
+        .parent2 .info-table td[data-label]::before {
+          content: attr(data-label) ": ";
+          font-weight: bold;
+          color: #1d4ed8;
           display: block;
-          width: 100%;
+          margin-bottom: 2px;
+          font-size: 0.97em;
         }
         .parent2 .info-table td, .parent2 .info-table th {
           display: block;
@@ -733,13 +733,5 @@ window.addEventListener('DOMContentLoaded', function() {
           word-break: break-word;
         }
       }
-      #itemResult {
-  margin: 18px 0 24px 0;
-  font-size: 1.1em;
-}
-#itemResult pre {
-  white-space: pre-wrap;
-  word-break: break-word;
-}
 </style>
 </html>
