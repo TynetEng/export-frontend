@@ -283,7 +283,7 @@ window.addEventListener('DOMContentLoaded', function() {
   // Fetch API and display result
   function fetchItemData(itemId) {
     showLoader();
-    fetch(`http://localhost:3000/api/item/${itemId}`, {
+    fetch(`https://export-api-45xf.onrender.com/api/item/${itemId}`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json'
