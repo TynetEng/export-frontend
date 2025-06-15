@@ -9,46 +9,48 @@
 <body>
   <div class="parent">
     <div class="" style="text-align: center;">
-    <img src="https://tanganyikaexport.com/wp-content/uploads/2023/12/offiial-logo-1.png" style="width: 20%;" />
-  </div>
+      <img src="https://tanganyikaexport.com/wp-content/uploads/2023/12/offiial-logo-1.png" style="width: 20%;" />
+      <div>
+        <p>Tanganyika Export Services Ltd, Unit 11 Noak Industrial Estate, New Rd, Wennington, Essex, RM13 9EB </p>
+        <p>T: +44 (0)20 8553 0906 | E:info@tanganyikaexport.com</p>
+      
+
+      </div>
+    </div>
   <div class="container">
+    <div style="text-align: center; background-color: #EFEFEF; padding:5px; color:red">   
+      <p>If you have any question regarding filling in this form please contact our office or email back to <span style="color: blue;">document@tanganyikaexport.com</span></p>
+     </div>
     <h2>SUBMIT SHIPPING INSTRUCTION</h2>
 
     <table class="info-table">
       <tr>
-        <th>REFERENCE</th>
-        <th>BILL OF LADING NUMBER</th>
-      </tr>
-      <tr>
-        <td>Hello</td>
-        <td>Hi</td>
-      </tr>
-      <tr>
-        <th>CARRIER REFERENCE</th>
+        <th>Shipping Line Booking Ref</th>
+        <th>container NUMBER</th>
+         <th>Seal number</th>
         <th>DESTINATION PORT</th>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
+        <td id="shippingRef"></td>
+        <td id="containerNumber"></td>
+        <td id="sealNumber"></td>
+        <td id="destinationPort"></td>
       </tr>
+      
       <tr>
-        <th>LOAD POINT</th>
-        <th>VESSEL</th>
+        <th>Port of loading</th>
+        <th>carrier name</th>
+        <th>Loading Address</th>
+        <th>ETD</th>
       </tr>
 
       <tr>
-        <td></td>
-        <td></td>
+        <td id="pol"></td>
+        <td id="carrierName"></td>
+        <td id="LoadingAddress"></td>
+        <td id="etd"></td>
       </tr>
-      <tr>
-        <th>LOCAL CLIENT</th>
-        <th>PICKUP DATE</th>
-      </tr>
-
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
+      
     </table>
 
     <h3>FOR OUR RECORDS, PLEASE PROVIDE YOUR NAME AND EMAIL ADDRESS</h3>
@@ -70,19 +72,7 @@
 
     <div class="flex-row">
       <div class="section">
-        <h4>1. SHIPPER/CONSIGNOR</h4>
-        <input type="text" placeholder="Consignor Name" id="consignor-name" />
-        <input type="text" placeholder="Consignor Address 1" id="consignor-addr1" />
-        <input type="text" placeholder="Consignor Address 2" id="consignor-addr2" />
-        <input type="text" placeholder="Consignor City" id="consignor-city" />
-        <input type="text" placeholder="Consignor Country" id="consignor-country" />
-        <input type="text" placeholder="Consignor Postcode" id="consignor-postcode" />
-        <input type="email" placeholder="Consignor Email" id="consignor-email" />
-        <input type="tel" placeholder="Consignor Phone" id="consignor-phone" />
-      </div>
-
-      <div class="section">
-        <h4>3. NOTIFY PARTY <input type="checkbox" id="sameAsConsignee" /> <label for="sameAsConsignee">Use same address as Consignee</label></h4>
+        <h4>1. BILLING PARTY</h4>
         <input type="text" placeholder="Notify Name" id="notify-name" />
         <input type="text" placeholder="Notify Address 1" id="notify-addr1" />
         <input type="text" placeholder="Notify Address 2" id="notify-addr2" />
@@ -91,13 +81,29 @@
         <input type="text" placeholder="Notify Postcode" id="notify-postcode" />
         <input type="email" placeholder="Notify Email" id="notify-email" />
         <input type="tel" placeholder="Notify Phone" id="notify-phone" />
+
       </div>
+
+      <div class="section">
+          <h4>2. SHIPPER/CONSIGNOR <input type="checkbox" id="sameAsBilling" /> <label for="sameAsBilling">Use same address as billing party</label></h4>
+       
+          <input type="text" placeholder="Consignor Name" id="consignor-name" />
+        <input type="text" placeholder="Consignor Address 1" id="consignor-addr1" />
+        <input type="text" placeholder="Consignor Address 2" id="consignor-addr2" />
+        <input type="text" placeholder="Consignor City" id="consignor-city" />
+        <input type="text" placeholder="Consignor Country" id="consignor-country" />
+        <input type="text" placeholder="Consignor Postcode" id="consignor-postcode" />
+        <input type="email" placeholder="Consignor Email" id="consignor-email" />
+        <input type="tel" placeholder="Consignor Phone" id="consignor-phone" />
+        </div>
+      
     </div>
 
     <div class="flex-row">
         <div class="section">
-          <h4>2. CONSIGNEE</h4>
-          <input type="text" placeholder="Consignee Name" id="consignee-name" />
+        <h4>3. CONSIGNEE</h4>
+        
+           <input type="text" placeholder="Consignee Name" id="consignee-name" />
           <input type="text" placeholder="Consignee Address 1" id="consignee-addr1" />
           <input type="text" placeholder="Consignee Address 2" id="consignee-addr2" />
           <input type="text" placeholder="Consignee City" id="consignee-city" />
@@ -105,7 +111,7 @@
           <input type="text" placeholder="Consignee Postcode" id="consignee-postcode" />
           <input type="email" placeholder="Consignee Email" id="consignee-email" />
           <input type="tel" placeholder="Consignee Phone" id="consignee-phone" />
-        </div>
+      </div>
       
 
         <div class="section">
@@ -121,14 +127,17 @@
 
       <div class="parent2">
         <h3>CONTAINERS</h3>
-      <p>1 CONTAINER ADDED FOR JOB REFERENCE STWLS25104807</p>
+        <div class="container-header">
+            <p>1 CONTAINER ADDED FOR CARRIER REFERENCE <span id="reference"></span></p>
+            <button class="btn-add">ADD CARGO ITEM</button>
+        </div>
       <table class="info-table">
         <thead>
           <tr>
             <th>CONTAINER NUMBER</th>
-            <th>SERIAL NUMBER</th>
-            <th>NUMBER OF PACKAGES</th>
             <th>PACKAGES DESCRIPTION</th>
+            <th>NUMBER OF PACKAGES</th>
+            <th>VALUE OF THE PACKAGE IN £: (if Known)</th>
             <th>PACKAGE HS CODE</th>
             <th>WEIGHT</th>
             <th>ACTION</th>
@@ -136,10 +145,10 @@
         </thead>
         <tbody id="container-list">
           <tr>
-            <td data-label="CONTAINER NUMBER">MSNU5692262</td>
-            <td data-label="SERIAL NUMBER"><input type="text" /></td>
-            <td data-label="NUMBER OF PACKAGES"><input type="number" /></td>
+            <td data-label="CONTAINER NUMBER"><span id="referenceForm"></span></td>
             <td data-label="PACKAGES DESCRIPTION"><input type="text" /></td>
+            <td data-label="NUMBER OF PACKAGES"><input type="number" /></td>
+            <td data-label="VALUE OF THE PACKAGE IN £: (if Known)"><input type="text" /></td>
             <td data-label="PACKAGE HS CODE"><input type="text" /></td>
             <td data-label="WEIGHT"><input type="number" /></td>
             <td data-label="ACTION" style="display: flex; flex-direction:row; align-items:center">
@@ -150,29 +159,35 @@
         </tbody>
       </table>
       
-      <button class="btn-add">ADD CONTAINER</button>
-      
-      <p style="color: red; font-weight: bold;">
-        PLEASE COMPLETE SERIAL NUMBER, NUMBER OF PACKAGES, PACKAGES DESCRIPTION AND WEIGHT FOR ALL CONTAINERS.
+       <p style="color: red; font-weight: bold;">
+        PLEASE COMPLETE NUMBER OF PACKAGES, PACKAGES DESCRIPTION AND WEIGHT FOR ALL CONTAINERS.
+        
       </p>
+     <div style="text-align: center; background-color: #EFEFEF; padding:5px; color:red">   
+      <p>If you have any question regarding filling in this form please contact our office or email back to <span style="color: blue;">document@tanganyikaexport.com</span></p>
+     </div>
+
+      <div class="submitForm">
+        <button id="submitFormBtn" class="btn-add">SUBMIT FORM</button>
+      </div>
       </div>
 
       <div id="addContainerModal" class="modal">
         <div class="modal-content">
           <span class="close" id="closeModal">&times;</span>
-          <h2>Add Container</h2>
+          <h2>Add Cargo Item</h2>
           <div>
             <input type="text" id="containerNumber" placeholder="Container Number" />
-            <input type="text" id="serialNumber" placeholder="Serial Number" />
-            <input type="number" id="packagesNumber" placeholder="Packages Number" />
             <input type="text" id="packagesDesc" placeholder="Packages Description" />
+            <input type="number" id="packagesNumber" placeholder="Packages Number" />
+            <input type="text" id="packageValue" placeholder="Packages Value" />
             <input type="text" id="packagesHS" placeholder="Packages HS Code" />
             <input type="number" id="weight" placeholder="Weight in KG (Enter '0' for VGM)" />
           </div>
       
           <footer>
             <button id="closeModal">Close</button>
-            <button id="submitContainer">Add Container</button>
+            <button id="submitContainer">Add Cargo Item</button>
           </footer>
         </div>
       </div>
@@ -184,20 +199,32 @@
 </body>
 
 <script>
-    document.getElementById("sameAsConsignee").addEventListener("change", function () {
-        if (this.checked) {
-          document.getElementById("notify-name").value = document.getElementById("consignee-name").value;
-          document.getElementById("notify-addr1").value = document.getElementById("consignee-name").value;
-          document.getElementById("notify-addr2").value = document.getElementById("consignee-name").value;
-          document.getElementById("notify-city").value = document.getElementById("consignee-name").value;
-          document.getElementById("notify-country").value = document.getElementById("consignee-name").value;
-          document.getElementById("notify-postcode").value = document.getElementById("consignee-name").value;
-          document.getElementById("notify-email").value = document.getElementById("consignee-name").value;
-          document.getElementById("notify-phone").value = document.getElementById("consignee-name").valuer;
-        } else {
-          document.querySelectorAll(".section input").forEach(input => input.value = "");
-        }
-      });
+  let dataResponse;
+    document.getElementById("sameAsBilling").addEventListener("change", function () {
+    const billingFields = {
+      name: document.getElementById("notify-name").value,
+      addr1: document.getElementById("notify-addr1").value,
+      addr2: document.getElementById("notify-addr2").value,
+      city: document.getElementById("notify-city").value,
+      country: document.getElementById("notify-country").value,
+      postcode: document.getElementById("notify-postcode").value,
+      email: document.getElementById("notify-email").value,
+      phone: document.getElementById("notify-phone").value
+    };
+
+    if (this.checked) {
+      document.getElementById("consignor-name").value = billingFields.name;
+      document.getElementById("consignor-addr1").value = billingFields.addr1;
+      document.getElementById("consignor-addr2").value = billingFields.addr2;
+      document.getElementById("consignor-city").value = billingFields.city;
+      document.getElementById("consignor-country").value = billingFields.country;
+      document.getElementById("consignor-postcode").value = billingFields.postcode;
+      document.getElementById("consignor-email").value = billingFields.email;
+      document.getElementById("consignor-phone").value = billingFields.phone;
+    } else {
+      document.querySelectorAll(".section:nth-of-type(2) input").forEach(input => input.value = "");
+    }
+  });
 
      
       
@@ -205,7 +232,32 @@
         if (e.target.classList.contains("delete-btn")) {
           e.target.closest("tr").remove();
         }
+
+        if (e.target.classList.contains("edit-btn")) {
+    const row = e.target.closest("tr");
+
+    // Check if we're entering or exiting edit mode
+    const isEditing = row.classList.toggle("editing");
+
+    // Convert each cell (except action buttons) to input or text
+    Array.from(row.cells).forEach((cell, i) => {
+      // Skip last column (action buttons)
+      if (i === row.cells.length - 1) return;
+
+      const currentContent = cell.textContent.trim();
+      if (isEditing) {
+        cell.innerHTML = `<input type="${i === 2 || i === 5 ? 'number' : 'text'}" value="${currentContent}" />`;
+      } else {
+        const input = cell.querySelector("input");
+        if (input) cell.textContent = input.value;
+      }
+    });
+
+    // Toggle icon
+    e.target.textContent = isEditing ? "✅" : "✏️";
+  }
       });
+      
 
       const modal = document.getElementById("addContainerModal");
 const openBtn = document.querySelector(".btn-add");
@@ -218,26 +270,19 @@ window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
 
 submitBtn.onclick = () => {
   const containerNumber = document.getElementById("containerNumber").value;
-  const serialNumber = document.getElementById("serialNumber").value;
   const packagesNumber = document.getElementById("packagesNumber").value;
   const packagesDesc = document.getElementById("packagesDesc").value;
+  const packageValue = document.getElementById("packageValue").value;
   const packagesHS = document.getElementById("packagesHS").value;
   const weight = document.getElementById("weight").value;
-
-
-  if (!containerNumber || !serialNumber || !packagesNumber || !packagesDesc || !packagesHS || weight === "") {
-    alert("Please complete all fields.");
-    return;
-  }
-
 
   const table = document.getElementById("container-list");
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
     <td>${containerNumber}</td>
-    <td>${serialNumber}</td>
-    <td>${packagesNumber}</td>
     <td>${packagesDesc}</td>
+    <td>${packagesNumber}</td>
+    <td>${packageValue}</td>
     <td>${packagesHS}</td>
     <td>${weight}</td>
     <td style="display: flex; flex-direction:row; align-items:center">
@@ -246,7 +291,6 @@ submitBtn.onclick = () => {
     </td>
   `;
   table.appendChild(newRow);
-
 
   modal.style.display = "none";
   document.querySelectorAll('#addContainerModal input').forEach(input => input.value = '');
@@ -296,6 +340,9 @@ window.addEventListener('DOMContentLoaded', function() {
       .then(data => {
         hideLoader();
         let resultDiv = document.getElementById('itemResult');
+        document.getElementById("reference").innerHTML = data.fields.CarrierReference;
+        document.getElementById("referenceForm").innerHTML = data.fields.CarrierReference;
+
         if (!resultDiv) {
           resultDiv = document.createElement('div');
           resultDiv.id = 'itemResult';
@@ -310,17 +357,21 @@ window.addEventListener('DOMContentLoaded', function() {
         }
         // Format the data nicely
         let html = `<div class='item-info-box'>`;
-        html += `<div><b>Item ID:</b> ${escapeHtml(data.id)}</div>`;
-        if (data.reference) html += `<div><b>Reference:</b> ${escapeHtml(data.reference)}</div>`;
-        if (data.bolNumber) html += `<div><b>BOL Number:</b> ${escapeHtml(data.bolNumber)}</div>`;
-        if (data.carrierReference) html += `<div><b>Carrier Reference:</b> ${escapeHtml(data.carrierReference)}</div>`;
-        if (data.destinationPort) html += `<div><b>Destination Port:</b> ${escapeHtml(data.destinationPort)}</div>`;
-        if (data.loadPoint) html += `<div><b>Load Point:</b> ${escapeHtml(data.loadPoint)}</div>`;
-        if (data.vessel) html += `<div><b>Vessel:</b> ${escapeHtml(data.vessel)}</div>`;
-        if (data.localClient) html += `<div><b>Local Client:</b> ${escapeHtml(data.localClient)}</div>`;
-        if (data.pickupDate) html += `<div><b>Pickup Date:</b> ${escapeHtml(data.pickupDate)}</div>`;
+        html += `<div><b>Item ID:</b> ${escapeHtml(data.fields.SystemId)}</div>`;
         html += `</div>`;
         resultDiv.innerHTML = html;
+
+         document.getElementById("shippingRef").innerHTML = escapeHtml(data.fields.CarrierReference || '');
+  document.getElementById("containerNumber").innerHTML = escapeHtml(data.fields.ContainerNumber || '');
+    document.getElementById("sealNumber").innerHTML = escapeHtml(data.fields.SealNumber || '');
+  document.getElementById("destinationPort").innerHTML = escapeHtml(data.fields.POD || '');
+
+  document.getElementById("pol").innerHTML = escapeHtml(data.fields.POL || '');
+  document.getElementById("carrierName").innerHTML = escapeHtml(data.fields.CarrierName || '');
+  document.getElementById("LoadingAddress").innerHTML = escapeHtml(data.fields.LoadingAddress || '');
+  const etdRaw = data.fields.ETD || '';
+const etdDate = etdRaw ? escapeHtml(etdRaw.split("T")[0]) : '';
+document.getElementById("etd").innerHTML = etdDate;
       })
       .catch(err => {
         hideLoader();
@@ -342,13 +393,108 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+
+document.getElementById("submitFormBtn").addEventListener("click", function () {
+  // Collect user identity
+  const userName = document.querySelector('input[placeholder="Name of person submitting this instruction"]').value;
+  const userEmail = document.querySelector('input[placeholder="Email of person submitting this instruction"]').value;
+
+  // Billing Party
+  const notify = {
+    name: document.getElementById("notify-name").value,
+    address1: document.getElementById("notify-addr1").value,
+    address2: document.getElementById("notify-addr2").value,
+    city: document.getElementById("notify-city").value,
+    country: document.getElementById("notify-country").value,
+    postcode: document.getElementById("notify-postcode").value,
+    email: document.getElementById("notify-email").value,
+    phone: document.getElementById("notify-phone").value,
+  };
+
+  // Shipper
+  const consignor = {
+    name: document.getElementById("consignor-name").value,
+    address1: document.getElementById("consignor-addr1").value,
+    address2: document.getElementById("consignor-addr2").value,
+    city: document.getElementById("consignor-city").value,
+    country: document.getElementById("consignor-country").value,
+    postcode: document.getElementById("consignor-postcode").value,
+    email: document.getElementById("consignor-email").value,
+    phone: document.getElementById("consignor-phone").value,
+  };
+
+  // Consignee
+  const consignee = {
+    name: document.getElementById("consignee-name").value,
+    address1: document.getElementById("consignee-addr1").value,
+    address2: document.getElementById("consignee-addr2").value,
+    city: document.getElementById("consignee-city").value,
+    country: document.getElementById("consignee-country").value,
+    postcode: document.getElementById("consignee-postcode").value,
+    email: document.getElementById("consignee-email").value,
+    phone: document.getElementById("consignee-phone").value,
+  };
+
+  // Shipment details
+  const shipmentValue = document.getElementById("shipment-value").value;
+  const notes = document.getElementById("shipment-notes").value;
+
+  // Container data
+  const containers = [];
+  document.querySelectorAll("#container-list tr").forEach(row => {
+    const cells = row.querySelectorAll("td");
+    if (cells.length > 5) {
+      containers.push({
+        containerNumber: cells[0].textContent.trim(),
+        description: cells[1].textContent.trim(),
+        quantity: cells[2].textContent.trim(),
+        value: cells[3].textContent.trim(),
+        hsCode: cells[4].textContent.trim(),
+        weight: cells[5].textContent.trim(),
+      });
+    }
+  });
+
+  const payload = {
+    user: { name: userName, email: userEmail },
+    billingParty: notify,
+    shipper: consignor,
+    consignee,
+    shipmentValue,
+    notes,
+    containers,
+    carrierReference: document.getElementById("reference").textContent.trim()
+  };
+
+  console.log("Sending payload:", payload);
+
+  // POST to your API
+  fetch("https://export-api-45xf.onrender.com/api/submit-shipping", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert("Form submitted successfully!");
+    console.log("Response:", data);
+  })
+  .catch(err => {
+    console.error("Error submitting form:", err);
+    alert("Error submitting the form. Please try again.");
+  });
+});
+
+
       
       
 </script>
 <style>
     body {
         font-family: 'Segoe UI', Arial, sans-serif;
-        background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+        background-color: #F9F9F9;
         margin: 0;
         padding: 10px;
         color: #222;
@@ -366,19 +512,19 @@ window.addEventListener('DOMContentLoaded', function() {
       h2, h3, h4 {
         text-align: center;
         margin-top: 30px;
-        color: #1d4ed8;
+        color: black
         letter-spacing: 1px;
       }
       h2 {
-        font-size: 2.2rem;
+        font-size: 18px;
         margin-bottom: 18px;
       }
       h3 {
-        font-size: 1.3rem;
+        font-size: 18px;
         margin-bottom: 10px;
       }
       h4 {
-        font-size: 1.1rem;
+        font-size: 18px;
         margin-bottom: 8px;
       }
       
@@ -401,12 +547,13 @@ window.addEventListener('DOMContentLoaded', function() {
       
       .info-table th{
         font-size: 13px;
-        background-color: #e0e7ff;
+        background-color: #EFEFEF;
         color: #1e293b;
         font-weight: bold;
+        text-transform: uppercase;  
       }
       .info-table tr:nth-child(even) td {
-        background: #f8fafc;
+        background: white;
       }
       .info-table tr td input{
         outline: 0;
@@ -419,7 +566,7 @@ window.addEventListener('DOMContentLoaded', function() {
         transition: border 0.2s;
       }
       .info-table tr td input:focus {
-        border: 1.5px solid #2563eb;
+        border: 1.5px solid #EFEFEF;
         background: #f0f6ff;
       }
       .info-table tr td{
@@ -442,17 +589,22 @@ window.addEventListener('DOMContentLoaded', function() {
         font-size: 14px;
         margin-top: 5px;
       }
+      .container-header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
       
       .section {
         flex: 1;
-        border: 1.5px solid #e0e7ff;
+        border: 1.5px solid #EEF3FA;
         padding: 18px 14px;
         border-radius: 10px;
         margin-top: 10px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        background: #f8fafc;
+        background: white;
         box-shadow: 0 1px 6px rgba(0,0,0,0.03);
       }
       
@@ -467,7 +619,7 @@ window.addEventListener('DOMContentLoaded', function() {
         transition: border 0.2s;
       }
       .section input:focus {
-        border: 1.5px solid #2563eb;
+        border: 1.5px solid #EFEFEF;
         background: #f0f6ff;
       }
       textarea {
@@ -481,24 +633,25 @@ window.addEventListener('DOMContentLoaded', function() {
         transition: border 0.2s;
       }
       textarea:focus {
-        border: 1.5px solid #2563eb;
+        border: 1.5px solid #EFEFEF;
         background: #f0f6ff;
       }
       .btn-add {
-        background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+        background: #1e40af;
         color: white;
-        padding: 12px 22px;
+        padding: 10px;
         border: none;
         border-radius: 7px;
         cursor: pointer;
         margin-top: 18px;
-        font-size: 1rem;
+        font-size: 12px;
         font-weight: 600;
         box-shadow: 0 2px 8px rgba(37,99,235,0.08);
         transition: background 0.2s, transform 0.1s;
+        margin-bottom: 2px;
       }
       .btn-add:hover {
-        background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
+        background: #01134f;
         transform: translateY(-2px) scale(1.03);
       }
       .edit-btn, .delete-btn {
@@ -566,12 +719,12 @@ window.addEventListener('DOMContentLoaded', function() {
         margin:5px 0;
         border-radius: 6px;
         border: 1px solid #cbd5e1;
-        background: #f8fafc;
+        background: white;
         font-size: 15px;
         transition: border 0.2s;
       }
       .modal-content input:focus {
-        border: 1.5px solid #2563eb;
+        border: 1.5px solid #EFEFEF;
         background: #f0f6ff;
       }
       .modal-content footer{
@@ -590,11 +743,11 @@ window.addEventListener('DOMContentLoaded', function() {
         transition: background 0.2s, transform 0.1s;
       }
       .modal-content #submitContainer {
-        background: linear-gradient(90deg, #2563eb 0%, #1e40af 100%);
+        background: #1e40af;
         color: #fff;
       }
       .modal-content #submitContainer:hover {
-        background: linear-gradient(90deg, #1e40af 0%, #2563eb 100%);
+        background: #051d6a;
         transform: scale(1.04);
       }
       .modal-content #closeModal {
@@ -604,6 +757,9 @@ window.addEventListener('DOMContentLoaded', function() {
       .modal-content #closeModal:hover {
         background: #cbd5e1;
         transform: scale(1.04);
+      }
+      .submitForm{
+        text-align: center;
       }
       .close {
         position: absolute;
@@ -618,10 +774,10 @@ window.addEventListener('DOMContentLoaded', function() {
         color: #1d4ed8;
       }
       .item-info-box {
-        background: linear-gradient(90deg, #e0e7ff 0%, #f1f5f9 100%);
-        border: 2px solid #2563eb;
+        background: #EFEFEF;
+        border: 2px solid #EFEFEF;
         border-radius: 10px;
-        padding: 18px 16px;
+        padding: 6px 16px;
         margin-bottom: 24px;
         font-size: 1.08rem;
         color: #1e293b;
@@ -653,8 +809,8 @@ window.addEventListener('DOMContentLoaded', function() {
         min-width: 180px;
       }
       .loader-spinner {
-        border: 4px solid #e0e7ff;
-        border-top: 4px solid #2563eb;
+        border: 4px solid #EEF3FA;
+        border-top: 4px solid #1d4ed8;
         border-radius: 50%;
         width: 44px;
         height: 44px;
@@ -688,7 +844,7 @@ window.addEventListener('DOMContentLoaded', function() {
           box-sizing: border-box;
           overflow-x: hidden !important;
           /* Remove or comment out overflow-y if not needed */
-          background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+          background: linear-gradient(135deg, #EEF3FA 0%, white 100%);
         }
         .parent {
           width: 100vw;
