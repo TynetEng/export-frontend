@@ -379,6 +379,27 @@ document.getElementById("etd").innerHTML = etdDate;
       });
   }
 
+  function fetchClientData(itemId) {
+  fetch(`https://export-api-45xf.onrender.com/api/${itemId}/clients`)
+    .then(res => {
+      if (!res.ok) throw new Error('Client API returned status ' + res.status);
+      return res.json();
+    })
+    .then(clients => {
+      if (clients && clients.length > 0 && clients[0].fields) {
+        const f = clients[0].fields;
+        document.getElementById('notify-name').value = f.FirstName ? `${f.FirstName} ${f.LastName || ''}`.trim() : '';
+        document.getElementById('notify-email').value = f.Email || '';
+        document.getElementById('notify-phone').value = f.Phone || '';
+        document.getElementById('notify-addr1').value = f.BusinessName || '';
+        // Optionally map more fields if needed
+      }
+    })
+    .catch(err => {
+      console.warn('Failed to fetch client info:', err);
+    });
+}
+
   // Helper to escape HTML for safe display
   function escapeHtml(str) {
     return str.replace(/[&<>"']/g, function(tag) {
