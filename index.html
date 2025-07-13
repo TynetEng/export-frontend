@@ -381,7 +381,7 @@ document.getElementById("etd").innerHTML = etdDate;
   }
 
   function fetchClientData(itemId) {
-  fetch(`https://export-api-45xf.onrender.com/api/${itemId}/clients`)
+  fetch(`https://export-api-45xf.onrender.com/api/item/${itemId}/clients`)
     .then(res => {
       if (!res.ok) throw new Error('Client API returned status ' + res.status);
       return res.json();
