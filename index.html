@@ -322,6 +322,7 @@ window.addEventListener('DOMContentLoaded', function() {
   const urlItemId = urlParams.get('itemId');
   if (urlItemId) {
     fetchItemData(urlItemId);
+    fetchClientData(urlItemId);
   }
 
   // Fetch API and display result
